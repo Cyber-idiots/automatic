@@ -14,13 +14,13 @@ spec:
         app: automatic
     spec:
       imagePullSecrets:
-        - name: wcj-secret
+        #- name: wcj-secret
       containers:
         - name: automatic
           env:
             - name: ENV
               value: prod
-          image: 192.168.10.10:10001
+          image: weichengjian/automatic
           resources:
             limits:
               memory: "128Mi"
