@@ -1,5 +1,5 @@
 # 构建编译文件
-FROM weichengjian:1.17 as builder
+FROM golang:1.17 as builder
 # 拷贝项目文件到镜像中
 COPY . /app
 # 设置命令工作目录
