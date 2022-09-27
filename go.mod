@@ -1,3 +1,3 @@
-module github.com/pingwazi0101/gocode
+module github.com/Cyber-idiots/automatic
 
 go 1.17
