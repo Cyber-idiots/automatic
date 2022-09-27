@@ -10,7 +10,7 @@ RUN go mod tidy && make build
 # 构建运行时文件
 FROM alpine:3.13
 # 添加作者
-LABEL author=pingwazi
+LABEL author=weichengjian
 # 设置工作目录
 WORKDIR /app
 # 从上一阶段中拷贝可执行文件
