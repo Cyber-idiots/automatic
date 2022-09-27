@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gocode
-  namespace: pingwazi
+  name: automatic
+  namespace: weichengjian
 spec:
   type: NodePort
   selector:
-    app: gocode
+    app: automatic
   ports:
     - port: 9000
       targetPort: 9000
