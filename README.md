@@ -1,1 +1,1 @@
-# gocode
+# automatic
