@@ -13,13 +13,13 @@ spec:
       labels:
         app: automatic
     spec:
-      imagePullSecrets:
-        - name: wcj-secret
+      #imagePullSecrets:
+        #- name: wcj-secret
       containers:
         - name: automatic
-          env:
-            - name: ENV
-              value: prod
+          #env:
+            #- name: ENV
+             # value: prod
           image: 192.168.10.10:10001/automatic/golang
           resources:
             limits:
