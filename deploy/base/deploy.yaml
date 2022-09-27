@@ -14,42 +14,16 @@ spec:
         app: automatic
     spec:
       imagePullSecrets:
-        - name: weichengjian-secret
+        - name: wcj-secret
       containers:
         - name: automatic
           env:
             - name: ENV
               value: prod
-          image: weichengjian/imagename
+          image: automatic/imagename
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
             - containerPort: 9000
-     containers:
-    -mountPath: /etc/localtime
-      name: vol-localtime
-      readOnly: true
-    volumes:
-        -name: vol-localtime
-        hostpath:
-            path: /etc/localtime
-       spec:
-        hostAliases:
-           - ip: "xx.xxx.xx.xxx"
-        hostnames:
-         - "mysql-master"
-         - "proxysql-server"
-         - "redis-server"
-        strategy:
-    type: RollingUpdate
-    rollingUpdate:
-       maxUnavailable: 25%
-       maxSurge: 25%
-revisionHistoryLimit: 10
-progressDeadlineSeconds: 600
-       env:
-    -name: JAVA_OPTS
-    value: >-
-       -Duser.timezone=Asia/Shanghai
