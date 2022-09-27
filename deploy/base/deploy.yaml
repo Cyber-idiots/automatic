@@ -1,26 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: pingwazi
-  name: gocode
+  namespace: weichengjian
+  name: automatic
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: gocode
+      app: weichengjian
   template:
     metadata:
       labels:
-        app: gocode
+        app: automatic
     spec:
       imagePullSecrets:
-        - name: pwz-secret
+        - name: weichengjian-secret
       containers:
-        - name: gocode
+        - name: automatic
           env:
             - name: ENV
               value: prod
-          image: pingwazi0101/imagename
+          image: weichengjian/imagename
           resources:
             limits:
               memory: "128Mi"
