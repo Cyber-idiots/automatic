@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+piVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: weichengjian
@@ -14,13 +14,13 @@ spec:
         app: automatic
     spec:
       imagePullSecrets:
-        - name: wcj-secret-1
+        - name: wcj-secret
       containers:
         - name: automatic
           env:
             - name: ENV
               value: prod
-          image: weichengjian/automatic
+          image: 192.168.10.10:1001
           resources:
             limits:
               memory: "128Mi"
