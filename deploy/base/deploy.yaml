@@ -14,7 +14,7 @@ spec:
         app: automatic
     spec:
       imagePullSecrets:
-        - name: harborlogin
+        - name: wcj-secret
       containers:
         - name: automatic
           env:
