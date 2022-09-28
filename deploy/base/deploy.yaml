@@ -20,7 +20,7 @@ spec:
           env:
             - name: ENV
               value: prod
-          image: weichengjian/automatic   #192.168.10.10:1001
+          image: 192.168.10.10:10001
           resources:
             limits:
               memory: "128Mi"
