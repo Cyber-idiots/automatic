@@ -1,23 +1,10 @@
-# 构建编译文件
-FROM golang:1.17 as builder
-# 拷贝项目文件到镜像中
-COPY . /app
-# 设置命令工作目录
-WORKDIR /app
-# 执行命令编译项目文件
-RUN go mod tidy && make build
-
-# 构建运行时文件
-FROM alpine:3.13
-# 添加作者
-LABEL author=pingwazi
-# 设置工作目录
-WORKDIR /app
-# 从上一阶段中拷贝可执行文件
-COPY --from=builder /app/bin/app /app/bin/app
-# 声明暴露的端口
-EXPOSE 8080/tcp
-# 调整动态链接地址
-RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
-# 启动服务
-ENTRYPOINT [ "/app/bin/app" ]
+#添加依赖环境，前提是将Java8的Docker镜像从官方镜像仓库pull下来，然后上传到自己的Harbor私有仓库中
+FROM 192.1618.10.30:10001/automatic/java:8
+#指定镜像制作作者，可自己随意设置
+MAINTAINER abc   
+#运行目录
+VOLUME /tmp
+#将本地的文件拷贝到容器，一般在项目的target目录下，要根据项目自己修改
+ADD target/*jar app.jar
+#启动容器后自动执行的命令
+ENTRYPOINT [ "java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app.jar" ]
