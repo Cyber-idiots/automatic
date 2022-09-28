@@ -1,7 +1,7 @@
 #添加依赖环境，前提是将Java8的Docker镜像从官方镜像仓库pull下来，然后上传到自己的Harbor私有仓库中
 FROM 192.1618.10.30:10001/automatic/java:8
 #指定镜像制作作者，可自己随意设置
-MAINTAINER abc   
+MAINTAINER weichengjian   
 #运行目录
 VOLUME /tmp
 #将本地的文件拷贝到容器，一般在项目的target目录下，要根据项目自己修改
