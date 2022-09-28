@@ -1,5 +1,5 @@
 # 构建编译文件
-FROM golang:1.17
+FROM golang:1.17 as builder
 # 拷贝项目文件到镜像中
 COPY . /app
 # 设置命令工作目录
@@ -8,7 +8,7 @@ WORKDIR /app
 RUN go mod tidy && make build
 
 # 构建运行时文件
-FROM 192.168.10.30:10001/automatic/alpine:3.13
+FROM alpine:3.13
 # 添加作者
 LABEL author=weichengjian
 # 设置工作目录
