@@ -1,6 +1,5 @@
 # 构建编译文件
-#FROM 10.1.1.132:1180/library/java:8
-FROM 192.168.10.30:10001/automatic/golang:1.17
+FROM golang:1.17
 # 拷贝项目文件到镜像中
 COPY . /app
 # 设置命令工作目录
