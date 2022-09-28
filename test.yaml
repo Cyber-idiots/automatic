@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: automatic
+  labels:
+    app: automatic
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: automatic
+  template:
+    metadata:
+      labels:
+        app: automatic
+    spec:
+      containers:
+      - name: automatic
+        image: 192.168.10.30:10001/automatic/automatic:1.0.0
+        ports:
+        - containerPort: 9000   #修改成你项目的端口
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: automatic
+  labels:
+    app: automatic
+spec:
+  ports:
+    - name: http
+      port: 9000			#修改成你项目的端口
+      nodePort: 9000      ##容器暴露的访问端口，要确定无冲突，否则需修改
+  type: NodePort
+  selector:
+    app: automatic
